@@ -8,14 +8,21 @@ import os
 
 models = [
     "None",
+    "bria-rmbg",
+    "birefnet-general",
+    "birefnet-general-lite",
+    "birefnet-portrait",
+    "birefnet-dis",
+    "birefnet-hrsod",
+    "birefnet-cod",
+    "birefnet-massive",
     "isnet-general-use",
+    "isnet-anime",
     "u2net",
     "u2netp",
     "u2net_human_seg",
     "u2net_cloth_seg",
     "silueta",
-    "isnet-general-use",
-    "isnet-anime",
 ]
 
 class ScriptPostprocessingUpscale(scripts_postprocessing.ScriptPostprocessing):
@@ -26,7 +33,7 @@ class ScriptPostprocessingUpscale(scripts_postprocessing.ScriptPostprocessing):
     def ui(self):
         with ui_components.InputAccordion(False, label="Remove background") as enable:
             with gr.Row():
-                model = gr.Dropdown(label="Remove background", choices=models, value="None")
+                model = gr.Dropdown(label="Remove background", choices=models, value="bria-rmbg")
                 return_mask = gr.Checkbox(label="Return mask", value=False)
                 alpha_matting = gr.Checkbox(label="Alpha matting", value=False)
 

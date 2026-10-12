@@ -6,21 +6,11 @@ import gradio as gr
 
 import rembg
 
-# models = [
-#     "None",
-#     "u2net",
-#     "u2netp",
-#     "u2net_human_seg",
-#     "u2net_cloth_seg",
-#     "silueta",
-# ]
-
-
 def rembg_api(_: gr.Blocks, app: FastAPI):
     @app.post("/rembg")
     async def rembg_remove(
         input_image: str = Body("", title='rembg input image'),
-        model: str = Body("u2net", title='rembg model'), 
+        model: str = Body("bria-rmbg", title='rembg model'), 
         return_mask: bool = Body(False, title='return mask'), 
         alpha_matting: bool = Body(False, title='alpha matting'), 
         alpha_matting_foreground_threshold: int = Body(240, title='alpha matting foreground threshold'), 
